@@ -21,7 +21,7 @@
                         <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="header.Margin" Value="50,0,0,0"/>
+                        <Setter Target="header.Margin" Value="48,0,0,0"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:ConnectionId='4' x:Name="VisualStateDesktop">
