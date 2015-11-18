@@ -12,26 +12,28 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         
         <Button x:Name="HamburgerButtonPhone" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Style="{StaticResource NavButtonStyle}"
-                        Width="50" Height="50" Background="{StaticResource AppBarBackgroundThemeBrush}" Click="HamburgerButton_Click" BorderThickness="0" VerticalAlignment="Top" Canvas.ZIndex="100"/>
+                        Width="48" Height="48" Background="{StaticResource HamburgerBackgroundBrush}" Click="HamburgerButton_Click" BorderThickness="0" VerticalAlignment="Top" Canvas.ZIndex="100"/>
         
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay" IsPaneOpen="False"
-               CompactPaneLength="50" OpenPaneLength="200">
+               CompactPaneLength="48" OpenPaneLength="200">
             <SplitView.Pane>
-                <Grid>
+                <Grid Background="{StaticResource HamburgerBackgroundBrush}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <StackPanel>
                         <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Style="{StaticResource NavButtonStyle}"
-                        Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click" BorderThickness="0"/>
+                        Width="48" Height="48" Background="Transparent" Click="HamburgerButton_Click" BorderThickness="0"/>
                         <ItemsControl ItemsSource="{Binding TopItems}" Background="Transparent">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Button Background="{Binding IsSelected, Converter={StaticResource SelectionColorConverter}}" BorderThickness="0" Style="{StaticResource NavButtonStyle}" Width="200" Height="50" Tag="{Binding}" Click="NavigationItem_Click">
+                                    <Button Background="{Binding IsSelected, Converter={StaticResource SelectionColorConverter}, ConverterParameter='background'}" 
+                                            Foreground="{Binding IsSelected, Converter={StaticResource SelectionColorConverter}, ConverterParameter='foreground'}" 
+                                            Style="{StaticResource NavButtonStyle}" Width="200" Height="48" Tag="{Binding}" Click="NavigationItem_Click">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="48"/>
                                                 <ColumnDefinition Width="150"/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Margin="8,0,0,0" FontFamily="Segoe MDL2 Assets" Text="{Binding MdlText}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
@@ -46,10 +48,12 @@
                         <ItemsControl ItemsSource="{Binding BottomItems}" Background="Transparent">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Button Background="{Binding IsSelected, Converter={StaticResource SelectionColorConverter}}" BorderThickness="0" Style="{StaticResource NavButtonStyle}" Width="200" Height="50" Tag="{Binding}" Click="NavigationItem_Click">
+                                    <Button Background="{Binding IsSelected, Converter={StaticResource SelectionColorConverter}, ConverterParameter='background'}" 
+                                            Foreground="{Binding IsSelected, Converter={StaticResource SelectionColorConverter}, ConverterParameter='foreground'}" 
+                                            Style="{StaticResource NavButtonStyle}" Width="200" Height="48" Tag="{Binding}" Click="NavigationItem_Click">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="48"/>
                                                 <ColumnDefinition Width="150"/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Margin="8,0,0,0" FontFamily="Segoe MDL2 Assets" Text="{Binding MdlText}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
@@ -89,7 +93,7 @@
                         <AdaptiveTrigger MinWindowWidth="600"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MySplitView.CompactPaneLength" Value="50"/>
+                        <Setter Target="MySplitView.CompactPaneLength" Value="48"/>
                         <Setter Target="HamburgerButtonPhone.Visibility" Value="Collapsed"/>
                     </VisualState.Setters>
                 </VisualState>

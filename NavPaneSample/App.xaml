@@ -6,12 +6,26 @@
     xmlns:converter="using:NavPaneSample.Converter"
     RequestedTheme="Light">
     <Application.Resources>
+        <SolidColorBrush x:Key="HamburgerBackgroundBrush" Color="DarkGray"/>
+        <SolidColorBrush x:Key="HamburgerForegroundBrush" Color="White"/>
+        
+        <SolidColorBrush x:Key="HamburgerItemPointerOverForegroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="HamburgerItemPointerOverBackgroundBrush" Color="LightBlue"/>
+        
+        <SolidColorBrush x:Key="HamburgerItemPressedForegroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="HamburgerItemPressedBackgroundBrush" Color="LightBlue"/>
+        
+        <SolidColorBrush x:Key="HamburgerItemSelectedForegroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="HamburgerItemSelectedBackgroundBrush" Color="Blue"/>
+
+        <SolidColorBrush x:Key="HamburgerItemDisabledForegroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="HamburgerItemDisabledBackgroundBrush" Color="DarkGray"/>
         <converter:SelectionColorConverter x:Key="SelectionColorConverter" />
         <Style x:Key="NavButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
-            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="Foreground" Value="{StaticResource HamburgerForegroundBrush}"/>
             <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundTransparentBrush}"/>
-            <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="8,4,8,4"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -33,36 +47,30 @@
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource HamburgerItemPointerOverForegroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource HamburgerItemPointerOverBackgroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource HamburgerItemPressedBackgroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource HamburgerItemPressedForegroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource HamburgerItemDisabledBackgroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseLowBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource HamburgerItemDisabledForegroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>

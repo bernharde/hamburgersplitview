@@ -28,6 +28,8 @@ namespace NavPaneSample
         {
             this.InitializeComponent();
 
+            
+
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             this.DataContext = mainViewModel = new ViewModels.MainViewModel();
