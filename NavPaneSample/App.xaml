@@ -6,17 +6,17 @@
     xmlns:converter="using:NavPaneSample.Converter"
     RequestedTheme="Light">
     <Application.Resources>
-        <SolidColorBrush x:Key="HamburgerBackgroundBrush" Color="DarkGray"/>
+        <SolidColorBrush x:Key="HamburgerBackgroundBrush" Color="#FF616161"/>
         <SolidColorBrush x:Key="HamburgerForegroundBrush" Color="White"/>
         
         <SolidColorBrush x:Key="HamburgerItemPointerOverForegroundBrush" Color="White"/>
-        <SolidColorBrush x:Key="HamburgerItemPointerOverBackgroundBrush" Color="LightBlue"/>
+        <SolidColorBrush x:Key="HamburgerItemPointerOverBackgroundBrush" Color="#FF80AFE8"/>
         
         <SolidColorBrush x:Key="HamburgerItemPressedForegroundBrush" Color="White"/>
-        <SolidColorBrush x:Key="HamburgerItemPressedBackgroundBrush" Color="LightBlue"/>
+        <SolidColorBrush x:Key="HamburgerItemPressedBackgroundBrush" Color="#FF80AFE8"/>
         
         <SolidColorBrush x:Key="HamburgerItemSelectedForegroundBrush" Color="White"/>
-        <SolidColorBrush x:Key="HamburgerItemSelectedBackgroundBrush" Color="Blue"/>
+        <SolidColorBrush x:Key="HamburgerItemSelectedBackgroundBrush" Color="#FF2859DC"/>
 
         <SolidColorBrush x:Key="HamburgerItemDisabledForegroundBrush" Color="White"/>
         <SolidColorBrush x:Key="HamburgerItemDisabledBackgroundBrush" Color="DarkGray"/>
