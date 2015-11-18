@@ -10,9 +10,12 @@
     d:DataContext="{d:DesignInstance Type=design:MainViewModel, IsDesignTimeCreatable=True}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" 
+        
+        <Button x:Name="HamburgerButtonPhone" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Style="{StaticResource NavButtonStyle}"
+                        Width="50" Height="50" Background="{StaticResource AppBarBackgroundThemeBrush}" Click="HamburgerButton_Click" BorderThickness="0" VerticalAlignment="Top" Canvas.ZIndex="100"/>
+        
+        <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay" IsPaneOpen="False"
                CompactPaneLength="50" OpenPaneLength="200">
-            
             <SplitView.Pane>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -70,5 +73,27 @@
                 </Grid>
             </SplitView.Content>
         </SplitView>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="VisualStatePhone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.CompactPaneLength" Value="0"/>
+                        <Setter Target="HamburgerButtonPhone.Visibility" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateDesktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.CompactPaneLength" Value="50"/>
+                        <Setter Target="HamburgerButtonPhone.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
